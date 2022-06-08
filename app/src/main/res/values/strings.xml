@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EjerciciosEnClase</string>
+    <string name="app_title">Este es mi titulo</string>
 </resources>
