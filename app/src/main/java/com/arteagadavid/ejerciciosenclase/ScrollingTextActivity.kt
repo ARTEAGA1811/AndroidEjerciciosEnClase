@@ -1,6 +1,10 @@
 package com.arteagadavid.ejerciciosenclase
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -17,11 +21,19 @@ class ScrollingTextActivity : AppCompatActivity() {
         binding = ActivityScrollingTextBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
-        binding.toolbarLayout.title = title
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        val editTextDatos = findViewById<EditText>(R.id.editTextDatos)
+        val textViewMostrarTexto = findViewById<TextView>(R.id.textViewMostrarTexto)
+        val buttonGuardar = findViewById<Button>(R.id.buttonGuardar)
+        val buttonLimpiar = findViewById<Button>(R.id.buttonLimpiar)
+
+
+        textViewMostrarTexto.movementMethod = ScrollingMovementMethod()
+        buttonGuardar.setOnClickListener {
+            textViewMostrarTexto.text = editTextDatos.text
+        }
+        buttonLimpiar.setOnClickListener {
+            textViewMostrarTexto.text = ""
+            editTextDatos.setText("")
         }
     }
 }
